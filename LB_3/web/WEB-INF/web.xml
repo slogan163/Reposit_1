@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>startServlet</servlet-name>
+        <servlet-class>StartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>startServlet</servlet-name>
+        <url-pattern>/startServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>firstSearchServlet</servlet-name>
+        <servlet-class>searchServlets.FirstSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>firstSearchServlet</servlet-name>
+        <url-pattern>/firstSearchServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>secondSearchServlet</servlet-name>
+        <servlet-class>searchServlets.SecondSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>secondSearchServlet</servlet-name>
+        <url-pattern>/secondSearchServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>threeSearchServlet</servlet-name>
+        <servlet-class>searchServlets.ThreeSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>threeSearchServlet</servlet-name>
+        <url-pattern>/threeSearchServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
