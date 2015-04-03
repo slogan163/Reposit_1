@@ -1,0 +1,61 @@
+create table GROUP_STUDENTS(
+  group_id NUMBER(10),
+  group_name varchar(10),
+  head_id NUMBER(10),
+  PRIMARY KEY (group_id));
+  
+CREATE SEQUENCE GROUP_STUDENTS_seq
+START WITH 1 
+INCREMENT BY 1 
+NOMAXVALUE;
+
+create or replace trigger group_id_trg
+before insert on Group_Students
+for each row
+begin
+  if :new.group_id is null then
+    select GROUP_STUDENTS_SEQ.nextval into :new.group_id from dual;
+  end if;
+end;
+
+INSERT INTO GROUP_STUDENTS (GROUP_NAME, HEAD_ID) VALUES ('Math', 1);
+INSERT INTO GROUP_STUDENTS (GROUP_NAME, HEAD_ID) VALUES ('Prog', 2);
+INSERT INTO GROUP_STUDENTS (GROUP_NAME, HEAD_ID) VALUES ('Music', 3);
+
+************************************
+
+create table STUDENTS(
+  stud_id NUMBER(10),
+  fname varchar(30),
+  lname varchar(30),
+  st_group_id number(10),
+  PRIMARY KEY (stud_id));
+  
+  CREATE SEQUENCE Students_seq
+START WITH 1 
+INCREMENT BY 1 
+NOMAXVALUE;
+
+create or replace trigger students_id_trg
+before insert on Students
+for each row
+begin
+  if :new.stud_id is null then
+    select STUDENTS_SEQ.nextval into :new.stud_id from dual;
+  end if;
+end;
+
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Иван','Иванов',1);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Степан','Петров',2);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Игорь','Сидоров',3);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Григорий','Гагарин',1);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Александр','Мостов',1);
+
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Ринат','Попов',2);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Андрей','Андреев',2);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Артем','Катаев',3);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Владимир','Цой',1);
+
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Иван','Марков',3);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Дмитрий','Ершов',3);
+INSERT INTO STUDENTS (fname, lname, ST_GROUP_ID) VALUES ('Дмитрий','Иванов',2);
