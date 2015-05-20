@@ -1,5 +1,0 @@
-com\devcolibri\bean\UserBean.class
-com\devcolibri\servlet\AddAndEditUserServlet.class
-com\devcolibri\servlet\MainServlet.class
-com\devcolibri\entity\User.class
-com\devcolibri\servlet\DeleteUser.class
